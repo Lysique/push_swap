@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:39:00 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/08 16:29:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/09 13:44:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	t_fcts	*fcts;
 
 	if (argc < 2)
-		ft_exit(EXIT_FAILURE);
+		ft_exit(EXIT_SUCCESS);
 	a = get_stack(argc, argv);
 	b = 0;
 	check_if_duplicates(a);

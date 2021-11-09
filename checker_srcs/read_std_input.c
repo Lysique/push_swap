@@ -6,13 +6,13 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:28:20 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/08 16:38:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/09 13:59:13 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	free_and_ex(t_stack *a, t_input *input, t_fcts *fcts)
+void	free_and_exit(t_stack *a, t_input *input, t_fcts *fcts)
 {
 	free_all(a, 0, input, fcts);
 	ft_exit(EXIT_FAILURE);
@@ -28,7 +28,7 @@ t_input	*input_add(t_input *input, char *line, t_fcts *fcts, t_stack *a)
 	{
 		if (line)
 			free(line);
-		free_and_ex(a, input, fcts);
+		free_and_exit(a, input, fcts);
 	}
 	addr = input;
 	new->call = line;
@@ -42,7 +42,7 @@ t_input	*input_add(t_input *input, char *line, t_fcts *fcts, t_stack *a)
 	return (input);
 }
 
-char	*ft_strjoin(char *line, char *buf, t_input *input)
+char	*ft_strjoin(char *line, char *buf)
 {
 	int		i;
 	char	*new;
@@ -52,10 +52,7 @@ char	*ft_strjoin(char *line, char *buf, t_input *input)
 		i++;
 	new = malloc(i + 2);
 	if (!new)
-	{
-		free_my_input_list(input);
 		return (0);
-	}
 	i = 0;
 	while (line && line[i])
 	{
@@ -87,9 +84,9 @@ t_input	*read_std_input(t_fcts *fcts, t_stack *a)
 		}
 		else
 		{
-			line = ft_strjoin(line, buf, input);
+			line = ft_strjoin(line, buf);
 			if (!line)
-				free_and_ex(a, input, fcts);
+				free_and_exit(a, input, fcts);
 		}
 		ret = read(0, buf, 1);
 	}

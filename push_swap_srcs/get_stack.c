@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 09:56:05 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/09 10:34:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/09 14:19:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ int	ft_isspace(char c)
 
 int	ft_atoi(char **str, t_stack *stack)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	long	sign;
+	long	nb;
 
-	i = 0;
 	nb = 0;
 	sign = 1;
 	while (ft_isspace(**str))
@@ -36,13 +34,13 @@ int	ft_atoi(char **str, t_stack *stack)
 		(*str)++;
 	while (**str >= '0' && **str <= '9')
 	{
+		nb = nb * 10 + (**str - '0');
+		(*str)++;
 		if (nb * sign < INT_MIN / 10 || nb * sign > INT_MAX / 10)
 		{
 			free_stack(stack);
 			ft_exit(EXIT_FAILURE);
 		}
-		nb = nb * 10 + (**str - '0');
-		(*str)++;
 	}
 	return (nb * sign);
 }

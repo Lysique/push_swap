@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:27:36 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/09 10:37:02 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/17 16:16:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	push_swap(int argc, char **params)
 
 	count = 0;
 	a = get_stack(argc, params, &count);
+	if (!a)
+		ft_exit(EXIT_FAILURE);
 	check_if_duplicates(a);
 	if (count < 2)
 	{

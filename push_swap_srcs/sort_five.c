@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:13:52 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/08 11:33:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/21 13:11:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,27 @@ int	is_sorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+void	ft_special_case(t_stack **a, t_data *data)
+{
+	int	x;
+
+	x = 0;
+	if ((*a)->nb < (*a)->next->nb && (*a)->next->nb < (*a)->next->next->nb
+		&& (*a)->next->next->next && (*a)->next->next->nb
+		> (*a)->next->next->next->nb && last_nb(*a)
+		< (*a)->next->next->next->nb)
+		x = 1;
+	else if ((*a)->nb < (*a)->next->nb && (*a)->next->nb
+		> (*a)->next->next->nb && (*a)->next->next->next
+		&& (*a)->next->next->nb < (*a)->next->next->next->nb && last_nb(*a)
+		< (*a)->next->next->next->nb)
+		x = 1;
+	if (!x)
+		return ;
+	rotate_reverse_call(*a, 0, data);
+	rotate_reverse_call(*a, 0, data);
 }
 
 void	sort_three(t_stack *a, t_data *data)
@@ -63,13 +84,14 @@ void	sort_new_element(t_stack **a, t_stack **b, t_data *data)
 		rotate_reverse_call(*a, 0, data);
 	push_call(a, b, data, 'a');
 	while (i--)
-		rotate_call((*a), 0, data);
+		rotate_call(*a, 0, data);
 }
 
 void	sort_five(t_stack **a, t_stack **b, t_data *data)
 {
 	if (is_sorted(*a))
 		return ;
+	ft_special_case(a, data);
 	while (data->count_a > 3)
 		push_call(a, b, data, 'b');
 	sort_three(*a, data);

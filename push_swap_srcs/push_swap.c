@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:27:36 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/17 16:16:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:21:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	algo_sorting(t_stack *a, t_stack *b, t_data *data)
 {
+	if (is_sorted(a))
+		return ;
 	if (data->count_a == 2)
 	{
 		if (a->nb > a->next->nb)

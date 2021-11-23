@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:05:18 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/09 10:24:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:21:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_stack	*get_stack(int argc, char **params, int *count);
 int		ft_exit(int error);
 int		push_conditions(int before, t_data *data, int after, int moves);
 void	check_if_duplicates(t_stack *a);
+int		is_sorted(t_stack *a);
 
 int		last_nb(t_stack *a);
 int		biggest_nb(t_stack *a);

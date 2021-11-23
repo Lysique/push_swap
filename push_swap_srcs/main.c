@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 08:36:08 by tamighi           #+#    #+#             */
-/*   Updated: 2021/11/09 13:35:43 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/11/21 16:22:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-		ft_exit(EXIT_FAILURE);
+		ft_exit(EXIT_SUCCESS);
 	push_swap(argc, argv);
 	return (0);
 }
